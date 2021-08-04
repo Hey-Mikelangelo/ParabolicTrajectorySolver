@@ -175,6 +175,11 @@ public class ParabolicTrajectory
         return newPoint;
     }
 
+    public float GetDistanceToOriginFlatY(Vector3 point)
+    {
+        return Vector3.Distance(new Vector3(point.x, 0, point.z), new Vector3(origin.x, 0, origin.z));
+    }
+
     private Vector3 GetPointOnExtremum(Parabola parabola, Vector3 directionFlatY, Vector3 origin)
     {
         Vector2 extremumXY = parabola.GetExtremumXY();
@@ -210,11 +215,6 @@ public class ParabolicTrajectory
 		Vector3 p2 = GetPositionByX(x + dx);
 		Vector3 direction = p2 - p1;
 		return direction;
-	}
-
-	private float GetDistanceToOriginFlatY(Vector3 point)
-	{
-		return Vector3.Distance(new Vector3(point.x, 0, point.z), new Vector3(origin.x, 0, origin.z));
 	}
 
 	private float GetDistanceFraction(float distance)
